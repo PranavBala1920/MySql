@@ -42,7 +42,6 @@ CREATE TABLE `employee_hobby` (
   CONSTRAINT `hobby_id` FOREIGN KEY (`fk_hobby_id`) REFERENCES `hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
- 
 -- Insert multiple data in all tables
 -- Hobby 
 INSERT INTO hobby(NAME)
@@ -68,7 +67,6 @@ VALUES
 	(3, 1200.00, '2021-12-22'),
 	(4, 1800.00, '2021-12-22');
 
-
 -- Employee_hobby
 INSERT INTO employee_hobby(fk_employee_id, fk_hobby_id)
 VALUES 
@@ -76,9 +74,7 @@ VALUES
 	(2, 1),
 	(3, 4),
 	(4, 3);
-
-
-
+	
 -- Update data of all tables
 -- Hobby
 UPDATE hobby
@@ -134,7 +130,6 @@ WHERE fk_employee_id = 3;
 UPDATE employee_salary
 SET salary = 16000.00
 WHERE fk_employee_id = 4;
-
 
 UPDATE employee_salary
 SET salary = 7000.00
