@@ -1,4 +1,47 @@
 -- Practicle 26:
+
+-- Table Creation Script
+-- hobby
+CREATE TABLE `hobby` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- employee
+CREATE TABLE `employee` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `last_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `age` int NOT NULL,
+  `mobile_number` varchar(10) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- employee_salary
+CREATE TABLE `employee_salary` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fk_employee_id` int NOT NULL,
+  `salary` decimal(10,0) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `employee_id_idx` (`fk_employee_id`),
+  CONSTRAINT `employee_id` FOREIGN KEY (`fk_employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- employee_hobby
+CREATE TABLE `employee_hobby` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fk_employee_id` int NOT NULL,
+  `fk_hobby_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `employee_id_idx` (`fk_employee_id`),
+  KEY `hobby_id_idx` (`fk_hobby_id`),
+  CONSTRAINT `employeeTable_id` FOREIGN KEY (`fk_employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_id` FOREIGN KEY (`fk_hobby_id`) REFERENCES `hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
  
 -- Insert multiple data in all tables
 -- Hobby 
@@ -10,7 +53,7 @@ VALUES
 	('Margaret');
 	
 -- Employee
-INSERT INTO employee(FirstName, LastName, Age, MobileNumber, Address)
+INSERT INTO employee(first_name, last_name, age, mobileNumber, address)
 VALUES
 	('Pranav', 'Barot', '21', '8780282128', 'Naroda'),
 	('Ravi', 'Patel', '25', '5455452525', 'Nikol'),
@@ -18,7 +61,7 @@ VALUES
 	('Jaymin', 'Kotadiay', '26', '87', 'Naroda');
 
 -- Employee_salary
-INSERT INTO employee_salary(FkEmployeeId, Salary, DATE)
+INSERT INTO employee_salary(fk_employee_id, salary, DATE)
 VALUES 
 	(1, 10000.00, '2021-12-22'),
 	(2, 1500.00, '2021-12-22'),
@@ -27,7 +70,7 @@ VALUES
 
 
 -- Employee_hobby
-INSERT INTO employee_hobby(FkEmployeeId, FkHobbyId)
+INSERT INTO employee_hobby(fk_employee_id, fk_hobby_id)
 VALUES 
 	(1, 2),
 	(2, 1),
@@ -56,49 +99,49 @@ WHERE id = 4;
 
 -- Employee
 UPDATE employee
-SET MobileNumber = '1234567890'
+SET mobile_number = '1234567890'
 WHERE id = 3;
 
 UPDATE employee
-SET LastName = 'Brahmbhatt'
+SET last_name = 'Brahmbhatt'
 WHERE id = 1;
 
 UPDATE employee
-SET Address = 'vastral'
+SET address = 'vastral'
 WHERE id = 2;
 
 UPDATE employee
-SET FirstName = 'Mitesh'
+SET first_name = 'Mitesh'
 WHERE id = 4;
 
 UPDATE employee
-SET MobileNumber = '9426529990'
+SET mobile_number = '9426529990'
 WHERE id = 4;
 
 -- Employee_salary
 UPDATE employee_salary
-SET Salary = 7000.00
+SET salary = 7000.00
 WHERE id = 2;
 
 UPDATE employee_salary
-SET Salary = 9000.00
-WHERE FkEmployeeId = 1;
+SET salary = 9000.00
+WHERE fk_employee_id = 1;
 
 UPDATE employee_salary
 SET DATE = '2022-01-23'
-WHERE FkEmployeeId = 3;
+WHERE fk_employee_id = 3;
 
 UPDATE employee_salary
-SET Salary = 16000.00
-WHERE FkEmployeeId = 4;
+SET salary = 16000.00
+WHERE fk_employee_id = 4;
 
 
 UPDATE employee_salary
-SET Salary = 7000.00
+SET salary = 7000.00
 WHERE id = 2;
 
 UPDATE employee_salary
-SET Salary = 9000.00
+SET salary = 9000.00
 WHERE id = 1;
 
 UPDATE employee_salary
@@ -106,24 +149,24 @@ SET DATE = '2022-01-23'
 WHERE id = 3;
 
 UPDATE employee_salary
-SET Salary = 16000.00
+SET salary = 16000.00
 WHERE id = 4;
 
 -- Employee_hobby
 UPDATE employee_hobby
-SET FkHobbyId = 1 
+SET fk_hobby_id = 1 
 WHERE id = 1;
 
 UPDATE employee_hobby
-SET FkHobbyId = 2 
+SET fk_hobby_id = 2 
 WHERE id = 2;
 
 UPDATE employee_hobby
-SET FkHobbyId = 3 
+SET fk_hobby_id = 3 
 WHERE id = 3;
 
 UPDATE employee_hobby
-SET FkHobbyId = 4 
+SET fk_hobby_id = 4 
 WHERE id = 4;
 
 -- Delete 2 records of all tables
