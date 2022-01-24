@@ -14,8 +14,8 @@ CREATE TABLE `employee` (
   `first_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `last_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `age` int NOT NULL,
-  `mobile_number` varchar(10) NOT NULL,
-  `address` varchar(45) NOT NULL,
+  `mobile_number` varchar(17) NOT NULL,
+  `address` varchar(70) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -23,7 +23,7 @@ CREATE TABLE `employee` (
 CREATE TABLE `employee_salary` (
   `id` int NOT NULL AUTO_INCREMENT,
   `fk_employee_id` int NOT NULL,
-  `salary` decimal(10,0) NOT NULL,
+  `salary` decimal(10,2) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `employee_id_idx` (`fk_employee_id`),
