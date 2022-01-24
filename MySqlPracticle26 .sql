@@ -1,6 +1,7 @@
 -- Practicle 26:
 
 -- Table Creation Script
+
 -- hobby
 CREATE TABLE `hobby` (
   `id` int NOT NULL AUTO_INCREMENT,
