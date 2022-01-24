@@ -10,7 +10,7 @@ VALUES
 	('Margaret');
 	
 -- Employee
-INSERT INTO employee(First_name, Last_name, Age, MobileNumber, Address)
+INSERT INTO employee(FirstName, LastName, Age, MobileNumber, Address)
 VALUES
 	('Pranav', 'Barot', '21', '8780282128', 'Naroda'),
 	('Ravi', 'Patel', '25', '5455452525', 'Nikol'),
@@ -56,23 +56,23 @@ WHERE id = 4;
 
 -- Employee
 UPDATE employee
-SET Mobile_number = '1234567890'
+SET MobileNumber = '1234567890'
 WHERE id = 3;
 
 UPDATE employee
-SET Last_name = 'Brahmbhatt'
+SET LastName = 'Brahmbhatt'
 WHERE id = 1;
 
 UPDATE employee
-SET address = 'vastral'
+SET Address = 'vastral'
 WHERE id = 2;
 
 UPDATE employee
-SET first_name = 'Mitesh'
+SET FirstName = 'Mitesh'
 WHERE id = 4;
 
 UPDATE employee
-SET Mobile_number = '9426529990'
+SET MobileNumber = '9426529990'
 WHERE id = 4;
 
 -- Employee_salary
