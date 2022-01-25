@@ -237,5 +237,5 @@ UNION
 SELECT NAME FROM hobby;
 
 -- Create a select query to get  employee name, his/her employee_salary
-SELECT CONCAT(e1.first_name, ' ' , e1.last_name) AS NAME, e2.salary AS salary FROM employee e1 INNER JOIN employee_salary e2 ON e1.id = e2.fk_employee_id;
+SELECT CONCAT(em.first_name, ' ' , em.last_name) AS employee_name, es.salary AS employee_salary FROM employee em INNER JOIN employee_salary es ON em.id = es.fk_employee_id;
 
