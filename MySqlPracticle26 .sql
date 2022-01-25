@@ -43,7 +43,6 @@ CREATE TABLE `employee_hobby` (
   CONSTRAINT `hobby_id` FOREIGN KEY (`fk_hobby_id`) REFERENCES `hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
 -- Select Query
 -- hobby
 SELECT * FROM hobby;
@@ -56,7 +55,6 @@ SELECT * FROM employee_salary;
 
 -- employee_hobby
 SELECT * FROM employee_hobby;
-
 
 -- Insert multiple data in all tables
 -- Hobby 
