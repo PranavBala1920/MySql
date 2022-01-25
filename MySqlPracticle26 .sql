@@ -43,6 +43,7 @@ CREATE TABLE `employee_hobby` (
   CONSTRAINT `hobby_id` FOREIGN KEY (`fk_hobby_id`) REFERENCES `hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 -- Select Query
 -- hobby
 SELECT * FROM hobby;
@@ -55,6 +56,7 @@ SELECT * FROM employee_salary;
 
 -- employee_hobby
 SELECT * FROM employee_hobby;
+
 
 -- Insert multiple data in all tables
 -- Hobby 
@@ -233,3 +235,7 @@ SELECT * FROM employee_hobby;
 SELECT CONCAT(first_name, ' ' , last_name) AS NAME FROM employee
 UNION
 SELECT NAME FROM hobby;
+
+-- Create a select query to get  employee name, his/her employee_salary
+SELECT CONCAT(e1.first_name, ' ' , e1.last_name) AS NAME, e2.salary AS salary FROM employee e1 INNER JOIN employee_salary e2 ON e1.id = e2.fk_employee_id;
+
