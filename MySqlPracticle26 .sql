@@ -217,3 +217,16 @@ SET FOREIGN_KEY_CHECKS = 1;
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE employee_hobby;
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- Create a separate select query to get a hobby, employee, employee_salary, employee_hobby
+-- Hobby
+SELECT * FROM hobby;
+
+-- Employee
+SELECT * FROM employee;
+
+-- Employee_salary
+SELECT * FROM employee_salary;
+
+-- Employee_hobby
+SELECT * FROM employee_hobby;
